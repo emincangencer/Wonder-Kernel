@@ -25,7 +25,10 @@ lib-y := ctype.o string.o vsprintf.o cmdline.o \
 	 sha1.o md5.o irq_regs.o argv_split.o \
 	 proportions.o flex_proportions.o ratelimit.o show_mem.o \
 	 is_single_threaded.o plist.o decompress.o kobject_uevent.o \
-	 earlycpio.o seq_buf.o siphash.o nmi_backtrace.o
+	 earlycpio.o seq_buf.o siphash.o nmi_backtrace.o win_minmax.o
+
+lib-$(CONFIG_DEBUG_KERNEL) += nmi_backtrace.o
+>>>>>>> 6fed91c277575 ([Squash] Net: tcp: Introduce bbr tcp algorithm)
 
 obj-$(CONFIG_ARCH_HAS_DEBUG_STRICT_USER_COPY_CHECKS) += usercopy.o
 lib-$(CONFIG_MMU) += ioremap.o
