@@ -67,7 +67,7 @@ static struct wake_lock hook_key_wake_lock;
 
 //Bruno++ Support 3 pole extension cable
 //#define MAX_IMPED 60000
-#define MAX_IMPED 20000
+#define MAX_IMPED 100000
 //Bruno++ Support 3 pole extension cable
 
 #define WCD_MBHC_BTN_PRESS_COMPL_TIMEOUT_MS  50
@@ -2866,6 +2866,7 @@ int wcd_mbhc_init(struct wcd_mbhc *mbhc, struct snd_soc_codec *codec,
 	struct snd_soc_card *card = codec->component.card;
 	const char *hph_switch = "qcom,msm-mbhc-hphl-swh";
 	const char *gnd_switch = "qcom,msm-mbhc-gnd-swh";
+	impedance_det_en = true;
 
 	pr_debug("%s: enter\n", __func__);
 
