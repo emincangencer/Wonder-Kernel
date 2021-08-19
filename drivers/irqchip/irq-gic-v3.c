@@ -25,6 +25,7 @@
 #include <linux/percpu.h>
 #include <linux/slab.h>
 #include <linux/module.h>
+#include <linux/wakeup_reason.h>
 
 #include <linux/irqchip.h>
 #include <linux/irqchip/arm-gic-v3.h>
@@ -503,7 +504,7 @@ static void gic_show_resume_irq(struct gic_chip_data *gic)
 
 //ASUS_BSP +++
 		printk("[PM] %s: IRQ=%d, i=%d triggered %s\n", __func__, irq, i, name);	/*print GIC_V3 irq number*/
-		log_wakeup_reason(irq);
+		log_base_wakeup_reason(irq);
 //ASUS_BSP ---
 
 		if(i == ADSP_IRQ) {
