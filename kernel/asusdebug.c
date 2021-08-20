@@ -1594,7 +1594,6 @@ static ssize_t QPSTInfo_write(struct file *file, const char __user *buf, size_t 
 	printk("[QPST] setproperty persist.sys.downloadmode.enable = %d\n", g_QPST_property);
 	
 	/*set download_mode when writing QPSTInfo*/
-	set_QPSTInfo_dloadmode(g_QPST_property);
 	
 	return count;
 }

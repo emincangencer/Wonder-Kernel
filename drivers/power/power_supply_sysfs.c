@@ -49,10 +49,8 @@ static ssize_t power_supply_show_property(struct device *dev,
 		"Wireless", "USB_FLOAT", "BMS", "Parallel", "Main", "Wipower",
 		"TYPEC", "TYPEC_UFP", "TYPEC_DFP"
 	};
-	//WeiYu add  "Thermal Alert" "10W Quick charging","Not 10W Quick charging"
 	static char *status_text[] = {
-		"Unknown", "Charging", "Discharging", "Not charging", "Full","Quick charging","Not Quick charging", "Thermal Alert",
-			"10W Quick charging","Not 10W Quick charging"
+		"Unknown", "Charging", "Discharging", "Not charging", "Full"
 	};
 	static char *charge_type[] = {
 		"Unknown", "N/A", "Trickle", "Fast",
@@ -317,7 +315,10 @@ static struct device_attribute power_supply_attrs[] = {
 	POWER_SUPPLY_ATTR(parallel_batfet_mode),
 	POWER_SUPPLY_ATTR(parallel_fcc_max),
 	POWER_SUPPLY_ATTR(min_icl),
-	POWER_SUPPLY_ATTR(fg_reset_clock),
+        POWER_SUPPLY_ATTR(fg_reset_clock),
+#ifdef CONFIG_MACH_ASUS_SDM660
+	POWER_SUPPLY_ATTR(adapter_id),
+#endif
 	/* Local extensions of type int64_t */
 	POWER_SUPPLY_ATTR(charge_counter_ext),
 	/* Properties of type `const char *' */

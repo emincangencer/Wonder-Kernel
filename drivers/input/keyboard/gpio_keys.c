@@ -463,9 +463,6 @@ static void gpio_keys_gpio_report_event(struct gpio_button_data *bdata)
 		}
 		if (vol_down_press_count == 10) {
 				write_magic_number();
-				download_mode = 1;
-				set_dload_mode(download_mode);
-				msm_set_restart_mode(download_mode);
 				printk("set_dload_mode\n");
 				panic("special panic...\r\n");
 		}
