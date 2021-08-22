@@ -4238,7 +4238,6 @@ void smblib_asus_monitor_start(struct smb_charger *chg, int time)
 #define SMBCHG_FLOAT_VOLTAGE_VALUE_4P357		0x74 //ASUS_BSP battery safety upgrade
 #define SMBCHG_FLOAT_VOLTAGE_VALUE_4P305		0x6D //ASUS_BSP battery safety upgrade
 #define SMBCHG_FLOAT_VOLTAGE_VALUE_4P252		0x66 //ASUS_BSP battery safety upgrade
-#define SMBCHG_FAST_CHG_CURRENT_VALUE_0MA	0x00
 #define SMBCHG_FAST_CHG_CURRENT_VALUE_850MA 	0x22
 #define SMBCHG_FAST_CHG_CURRENT_VALUE_1475MA 	0x3B
 #define SMBCHG_FAST_CHG_CURRENT_VALUE_1500MA 	0x3C
@@ -4575,7 +4574,7 @@ void jeita_rule(void)
 	case JEITA_STATE_LESS_THAN_0:
 		charging_enable = EN_BAT_CHG_EN_COMMAND_FALSE;
 		FV_CFG_reg_value = g_fv_setting; //ASUS_BSP battery safety upgrade
-		FCC_reg_value = SMBCHG_FAST_CHG_CURRENT_VALUE_0MA;
+		FCC_reg_value = SMBCHG_FAST_CHG_CURRENT_VALUE_850MA;
 		CHG_DBG("%s: temperature < 0\n", __func__);
 		break;
 	case JEITA_STATE_RANGE_0_to_100:
@@ -4636,7 +4635,7 @@ void jeita_rule(void)
 	case JEITA_STATE_LARGER_THAN_600:
 		charging_enable = EN_BAT_CHG_EN_COMMAND_FALSE;
 		FV_CFG_reg_value = g_fv_setting; //ASUS_BSP battery safety upgrade
-		FCC_reg_value = SMBCHG_FAST_CHG_CURRENT_VALUE_0MA;
+		FCC_reg_value = SMBCHG_FAST_CHG_CURRENT_VALUE_1475MA;
 		CHG_DBG("%s: temperature >= 60\n", __func__);
 		break;
 	}
